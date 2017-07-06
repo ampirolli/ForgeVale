@@ -1,0 +1,10 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    .button {
+        -fx-pref-width: 75px;
+        -fx-pref-height: 150px;
+    }
+}

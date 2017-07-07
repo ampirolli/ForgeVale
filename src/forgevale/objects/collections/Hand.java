@@ -16,7 +16,7 @@ public class Hand extends CardCollection{
         this.setCollection(new ArrayList<Card>());
     }
     
-    public void drawCard(Deck deck){
+    public void addCard(Deck deck){
         if(this.getCollection().size() < maxSize){
             this.getCollection().add(deck.getCollection().get(0));
             deck.getCollection().remove(0);
@@ -24,6 +24,8 @@ public class Hand extends CardCollection{
             System.out.println("Cannot draw more than 8 cards...");
         }
     }
+    
+    
     
     
     

@@ -1,8 +1,10 @@
 package forgevale.objects;
 
+import forgevale.objects.collections.ActiveZone;
 import forgevale.objects.collections.GraveYard;
 import forgevale.objects.collections.Deck;
 import forgevale.objects.collections.Hand;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,6 +27,7 @@ public class Player {
     private Deck deck;
     private Hand hand;
     private GraveYard grave;
+    private ActiveZone activeZone;
     
     public Player(String name){
         
@@ -119,6 +122,14 @@ public class Player {
         this.grave = grave;
     }
     
+    public ActiveZone getActiveZone() {
+        return activeZone;
+    }
+
+    public void setActiveZone(ActiveZone activeZone) {
+        this.activeZone = activeZone;
+    }
+    
     public void accumulateMana(){
         if(this.playerMana < maxHealth){
             this.playerMana = this.playerMana + 1;
@@ -133,12 +144,20 @@ public class Player {
             this.hand = new Hand();
             int i;
             for(i = 0; i < 5; i++){
-                this.hand.drawCard(this.deck);
+                this.hand.addCard(this.deck);
             }
             hasDrawnFirstHand = true;
 
         }else{
-            this.hand.drawCard(this.deck);
+            this.hand.addCard(this.deck);
+        }
+    
+    }
+    
+    public void setCard(Card card){
+        
+        if(this.activeZone.getCollection().size() < 8){
+           this.activeZone.addCard(card, this.hand);
         }
     
     }

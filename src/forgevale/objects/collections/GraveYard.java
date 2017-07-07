@@ -1,4 +1,4 @@
-package forgevale.objects.cardCollections;
+package forgevale.objects.collections;
 
 import forgevale.objects.Card;
 import forgevale.objects.CardCollection;

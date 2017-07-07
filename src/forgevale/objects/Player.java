@@ -1,8 +1,8 @@
 package forgevale.objects;
 
-import forgevale.objects.cardCollections.GraveYard;
-import forgevale.objects.cardCollections.Deck;
-import forgevale.objects.cardCollections.Hand;
+import forgevale.objects.collections.GraveYard;
+import forgevale.objects.collections.Deck;
+import forgevale.objects.collections.Hand;
 
 /**
  *

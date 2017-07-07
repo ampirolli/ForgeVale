@@ -3,8 +3,10 @@
  */
 
 .mainFxmlClass {
-    .button {
-        -fx-pref-width: 75px;
-        -fx-pref-height: 150px;
-    }
+    
 }
+
+.button {
+        -fx-min-width: 100px;
+        -fx-min-height: 140px;
+    }

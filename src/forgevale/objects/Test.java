@@ -2,7 +2,7 @@ package forgevale.objects;
 
 
 
-import forgevale.objects.cardCollections.Deck;
+import forgevale.objects.collections.Deck;
 import forgevale.objects.cards.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

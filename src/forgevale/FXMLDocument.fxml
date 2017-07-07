@@ -7,46 +7,46 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1250" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forgevale.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1400" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forgevale.FXMLDocumentController">
     <stylesheets>
         <URL value="@fxml.css"/>
     </stylesheets>
     <children>
-        <Button fx:id="p1Hand1" translateX = "-525" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand2" translateX = "-390" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand3" translateX = "-255" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand4" translateX = "-120" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand5" translateX = "15" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand6" translateX = "150" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand7" translateX = "285" translateY = "275"  > </Button>
-        <Button fx:id="p1Hand8" translateX = "420" translateY = "275"  > </Button>
+        <Button fx:id="p1Hand1" translateX = "45"  translateY = "25"  > </Button>
+        <Button fx:id="p1Hand2" translateX = "180" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand3" translateX = "315" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand4" translateX = "450" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand5" translateX = "585" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand6" translateX = "720" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand7" translateX = "855" translateY = "25"  > </Button>
+        <Button fx:id="p1Hand8" translateX = "990" translateY = "25"  > </Button>
 
-        <Button fx:id="p1Board1" translateX = "-525" translateY = "100"  > </Button>
-        <Button fx:id="p1Board2" translateX = "-390" translateY = "100"  > </Button>
-        <Button fx:id="p1Board3" translateX = "-255" translateY = "100"  > </Button>
-        <Button fx:id="p1Board4" translateX = "-120" translateY = "100"  > </Button>
-        <Button fx:id="p1Board5" translateX = "15" translateY = "100"  > </Button>
-        <Button fx:id="p1Board6" translateX = "150" translateY = "100"  > </Button>
-        <Button fx:id="p1Board7" translateX = "285" translateY = "100"  > </Button>
-        <Button fx:id="p1Board8" translateX = "420" translateY = "100"  > </Button>
+        <Button fx:id="p1Board1" translateX = "45"  translateY = "200"  > </Button>
+        <Button fx:id="p1Board2" translateX = "180" translateY = "200"  > </Button>
+        <Button fx:id="p1Board3" translateX = "315" translateY = "200"  > </Button>
+        <Button fx:id="p1Board4" translateX = "450" translateY = "200"  > </Button>
+        <Button fx:id="p1Board5" translateX = "585" translateY = "200"  > </Button>
+        <Button fx:id="p1Board6" translateX = "720" translateY = "200"  > </Button>
+        <Button fx:id="p1Board7" translateX = "855" translateY = "200"  > </Button>
+        <Button fx:id="p1Board8" translateX = "990" translateY = "200"  > </Button>
 
-        <Button fx:id="p2Hand1" translateX = "-525" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand2" translateX = "-390" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand3" translateX = "-255" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand4" translateX = "-120" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand5" translateX = "15" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand6" translateX = "150" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand7" translateX = "285" translateY = "-275"> </Button>
-        <Button fx:id="p2Hand8" translateX = "420" translateY = "-275"> </Button>
+        <Button fx:id="p2Hand1" translateX = "45"  translateY = "400"> </Button>
+        <Button fx:id="p2Hand2" translateX = "180" translateY = "400"> </Button>
+        <Button fx:id="p2Hand3" translateX = "315" translateY = "400"> </Button>
+        <Button fx:id="p2Hand4" translateX = "450" translateY = "400"> </Button>
+        <Button fx:id="p2Hand5" translateX = "585" translateY = "400"> </Button>
+        <Button fx:id="p2Hand6" translateX = "720" translateY = "400"> </Button>
+        <Button fx:id="p2Hand7" translateX = "855" translateY = "400"> </Button>
+        <Button fx:id="p2Hand8" translateX = "990" translateY = "400"> </Button>
 
-        <Button fx:id="p2Board1" translateX = "-525" translateY = "-100"> </Button>
-        <Button fx:id="p2Board2" translateX = "-390" translateY = "-100"> </Button>
-        <Button fx:id="p2Board3" translateX = "-255" translateY = "-100"> </Button>
-        <Button fx:id="p2Board4" translateX = "-120" translateY = "-100"> </Button>
-        <Button fx:id="p2Board5" translateX = "15" translateY = "-100"> </Button>
-        <Button fx:id="p2Board6" translateX = "150" translateY = "-100"> </Button>
-        <Button fx:id="p2Board7" translateX = "285" translateY = "-100"> </Button>
-        <Button fx:id="p2Board8" translateX = "420" translateY = "-100"> </Button>
+        <Button fx:id="p2Board1" translateX = "45"  translateY = "575"> </Button>
+        <Button fx:id="p2Board2" translateX = "180" translateY = "575"> </Button>
+        <Button fx:id="p2Board3" translateX = "315" translateY = "575"> </Button>
+        <Button fx:id="p2Board4" translateX = "450" translateY = "575"> </Button>
+        <Button fx:id="p2Board5" translateX = "585" translateY = "575"> </Button>
+        <Button fx:id="p2Board6" translateX = "720" translateY = "575"> </Button>
+        <Button fx:id="p2Board7" translateX = "855" translateY = "575"> </Button>
+        <Button fx:id="p2Board8" translateX = "990" translateY = "575"> </Button>
     </children>
 
 

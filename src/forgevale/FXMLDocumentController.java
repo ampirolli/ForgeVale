@@ -123,8 +123,8 @@ public class FXMLDocumentController implements Initializable {
 
         if (result.isPresent() && result.get() == set) {
             
-            if( true == false && event.getSource() == p1Hand1){
-                //board.player1.getActiveZone().addCard(board.player1.getHand().getCollection().get(0), board.player1.getHand());       
+            if(event.getSource() == p1Hand1){
+                board.player1.setCard(board.player1.getHand().getCollection().get(0));       
             }
             if(event.getSource() == p1Hand2){
                 board.player1.getHand().getCollection().get(1);

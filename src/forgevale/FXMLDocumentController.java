@@ -4,11 +4,16 @@ import forgevale.objects.Board;
 import forgevale.objects.Player;
 import forgevale.objects.Test;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 /**
@@ -21,6 +26,8 @@ public class FXMLDocumentController implements Initializable {
     Integer phase = 0;
     Player activePlayer;
     boolean switchPlayer = true; //true = player 1 || faslse = player 2
+    boolean prePhase = false;
+    boolean mainPhase = false;
     
     @FXML
     private Label label;
@@ -38,15 +45,50 @@ public class FXMLDocumentController implements Initializable {
         label.setText("Hello World!");
     }
     
-    private void updatePlayer1(){
-    
-        
-        
-    }
-    
-    private void updatePlayer2(){
-    
-        
+    private void updatePlayers(){
+        int i = 0;
+        int cardCount = board.player1.getHand().getCollection().size();
+        while(i <= cardCount){
+            if(i == 1)
+                p1Hand1.setText(board.player1.getHand().getCollection().get(0).getName().toString());
+            if(i == 2)
+                p1Hand2.setText(board.player1.getHand().getCollection().get(1).getName().toString());
+            if(i == 3)
+                p1Hand3.setText(board.player1.getHand().getCollection().get(2).getName().toString());
+            if(i == 4)
+                p1Hand4.setText(board.player1.getHand().getCollection().get(3).getName().toString());
+            if(i == 5)
+                p1Hand5.setText(board.player1.getHand().getCollection().get(4).getName().toString());
+            if(i == 6)
+                p1Hand6.setText(board.player1.getHand().getCollection().get(5).getName().toString());
+            if(i == 7)
+                p1Hand7.setText(board.player1.getHand().getCollection().get(6).getName().toString());
+            if(i == 8)
+                p1Hand8.setText(board.player1.getHand().getCollection().get(7).getName().toString());
+            i++;
+        }
+            
+        i = 0;
+        cardCount = board.player2.getHand().getCollection().size();
+        while(i <= cardCount){
+            if(i == 1)
+                p2Hand1.setText(board.player2.getHand().getCollection().get(0).getName().toString());
+            if(i == 2)
+                p2Hand2.setText(board.player2.getHand().getCollection().get(1).getName().toString());
+            if(i == 3)
+                p2Hand3.setText(board.player2.getHand().getCollection().get(2).getName().toString());
+            if(i == 4)
+                p2Hand4.setText(board.player2.getHand().getCollection().get(3).getName().toString());
+            if(i == 5)
+                p2Hand5.setText(board.player2.getHand().getCollection().get(4).getName().toString());
+            if(i == 6)
+                p2Hand6.setText(board.player2.getHand().getCollection().get(5).getName().toString());
+            if(i == 7)
+                p2Hand7.setText(board.player2.getHand().getCollection().get(6).getName().toString());
+            if(i == 8)
+                p2Hand8.setText(board.player2.getHand().getCollection().get(7).getName().toString());
+            i++;
+        }    
         
     }
     
@@ -58,33 +100,25 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleNextPhase(ActionEvent event){
-        phase++;
+        updatePlayers();
+                        
+    }
+    
+    @FXML
+    private void setPrompt(ActionEvent event){
+    
+        ButtonType set = new ButtonType("set", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancel = new ButtonType("cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        Alert alert = new Alert(AlertType.WARNING,"", set, cancel);
+        alert.setTitle("Set Card");
+        alert.setHeaderText("You are about to set this card...");
+        alert.setContentText("are you sure you want to set this card?");
+        Optional<ButtonType> result = alert.showAndWait();
         
-        switch(phase){
-                
-                case 1:
-                    board.drawPhase(board.getActivePlayer());
-                    board.manaPhase(board.getActivePlayer());
-                    break;
-                    
-                case 2:
-                    board.attackAndSetPhase(board.getActivePlayer());
-                    break;
-                    
-                default:
-                    board.switchActivePlayer();
-                    phase = 0;
-                    break;
-                    
-                   
-                    
-                    
-           
+
+        if (result.isPresent() && result.get() == set) {
+
         }
-                    
-        
-        
-        
     }
     
     

@@ -9,10 +9,12 @@ import java.util.ArrayList;
 public class Board {
     Player player1;
     Player player2;
+    boolean activePlayer;
     
     public Board(Player player1, Player player2){
         this.player1 = player1;
-        this.player2 = player2;        
+        this.player2 = player2;
+        activePlayer = true;
         
     }
  
@@ -27,6 +29,27 @@ public class Board {
     public void attackAndSetPhase(Player player){
     
     }
+    
+    public Player getActivePlayer(){
+    
+        if(activePlayer = true){
+            return this.player1;
+        }else{
+            return this.player2;
+        }
+    
+    }
+    
+    public void switchActivePlayer(){
+        
+         if(activePlayer == true){
+                activePlayer = false;
+         }else{
+            activePlayer = true;
+         }
+    
+    }
+    
     
     
 }

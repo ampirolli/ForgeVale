@@ -75,15 +75,13 @@ public class Test {
 
         for(Card card : player1.getHand().getCollection()){ //for each card in the players hand, display this:
             System.out.println(player1.getPlayerName() + ": " + card.getName());
-            System.out.println("    - Mana cost: " + card.getManaCost());
-            System.out.println("- Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");
+            System.out.println("    - Mana cost: " + card.getManaCost() + " \n - Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");
 
         }
         System.out.println("<----------------------------------------------------> \n");
         for(Card card : player2.getHand().getCollection()){
             System.out.println(player2.getPlayerName() + ": " + card.getName());
-            System.out.println("    - Mana cost: " + card.getManaCost());
-            System.out.println("- Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");
+            System.out.println("    - Mana cost: " + card.getManaCost() + " \n - Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");
 
         }
     }

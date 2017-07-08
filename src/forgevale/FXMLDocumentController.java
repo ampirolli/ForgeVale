@@ -89,7 +89,28 @@ public class FXMLDocumentController implements Initializable {
             if(i == 8)
                 p2Hand8.setText(board.player2.getHand().getCollection().get(7).getName().toString());
             i++;
-        }    
+        }
+        i = 0;
+        cardCount = board.player1.getActiveZone().getCollection().size();
+        while(i <= cardCount){
+            if(i == 1)
+                p1Board1.setText(board.player1.getActiveZone().getCollection().get(0).getName().toString());
+            if(i == 2)
+                p1Board2.setText(board.player1.getActiveZone().getCollection().get(1).getName().toString());
+            if(i == 3)
+                p1Board3.setText(board.player1.getActiveZone().getCollection().get(2).getName().toString());
+            if(i == 4)
+                p1Board4.setText(board.player1.getActiveZone().getCollection().get(3).getName().toString());
+            if(i == 5)
+                p1Board5.setText(board.player1.getActiveZone().getCollection().get(4).getName().toString());
+            if(i == 6)
+                p1Board6.setText(board.player1.getActiveZone().getCollection().get(5).getName().toString());
+            if(i == 7)
+                p1Board7.setText(board.player1.getActiveZone().getCollection().get(6).getName().toString());
+            if(i == 8)
+                p1Board8.setText(board.player1.getActiveZone().getCollection().get(7).getName().toString());
+            i++;
+        }  
         
     }
     
@@ -123,58 +144,44 @@ public class FXMLDocumentController implements Initializable {
 
         if (result.isPresent() && result.get() == set) {
             
-            if(event.getSource() == p1Hand1){
-                board.player1.setCard(board.player1.getHand().getCollection().get(0));       
-            }
-            if(event.getSource() == p1Hand2){
-                board.player1.getHand().getCollection().get(1);
-            }
-            if(event.getSource() == p1Hand3){
-                board.player1.getHand().getCollection().get(2);
-            }
-            if(event.getSource() == p1Hand4){
-                board.player1.getHand().getCollection().get(3);
-            }
-            if(event.getSource() == p1Hand5){
-                board.player1.getHand().getCollection().get(4);
-            }
-            if(event.getSource() == p1Hand6){
-                board.player1.getHand().getCollection().get(5);
-            }
-            if(event.getSource() == p1Hand7){
-                board.player1.getHand().getCollection().get(6);
-            }
-            if(event.getSource() == p1Hand8){
-                board.player1.getHand().getCollection().get(7);
-            }
+            if(event.getSource() == p1Hand1)
+                board.player1.setCard(board.player1.getHand().getCollection().get(0));  
+            if(event.getSource() == p1Hand2)
+                board.player1.setCard(board.player1.getHand().getCollection().get(1));          
+            if(event.getSource() == p1Hand3)
+                board.player1.setCard(board.player1.getHand().getCollection().get(2));         
+            if(event.getSource() == p1Hand4)
+                board.player1.setCard(board.player1.getHand().getCollection().get(3));         
+            if(event.getSource() == p1Hand5)
+                board.player1.setCard(board.player1.getHand().getCollection().get(4));         
+            if(event.getSource() == p1Hand6)
+                board.player1.setCard(board.player1.getHand().getCollection().get(5));         
+            if(event.getSource() == p1Hand7)
+                board.player1.setCard(board.player1.getHand().getCollection().get(6));
+            if(event.getSource() == p1Hand8)
+                board.player1.setCard(board.player1.getHand().getCollection().get(7));
+            
 
-            if(event.getSource() == p2Hand1){
-                board.player2.getHand().getCollection().get(0);
-            }
-            if(event.getSource() == p2Hand2){
-                board.player2.getHand().getCollection().get(1);
-            }
-            if(event.getSource() == p2Hand3){
-                board.player2.getHand().getCollection().get(2);
-            }
-            if(event.getSource() == p2Hand4){
-                board.player2.getHand().getCollection().get(3);
-            }
-            if(event.getSource() == p2Hand5){
-                board.player2.getHand().getCollection().get(4);
-            }
-            if(event.getSource() == p2Hand6){
-                board.player2.getHand().getCollection().get(5);
-            }
-            if(event.getSource() == p2Hand7){
-                board.player2.getHand().getCollection().get(6);
-            }
-            if(event.getSource() == p2Hand8){
-                board.player2.getHand().getCollection().get(7);
-            }
-
+            if(event.getSource() == p2Hand1)
+                board.player2.setCard(board.player2.getHand().getCollection().get(0)); 
+            if(event.getSource() == p2Hand2)
+                board.player2.setCard(board.player2.getHand().getCollection().get(1));
+            if(event.getSource() == p2Hand3)
+                board.player2.setCard(board.player2.getHand().getCollection().get(2));
+            if(event.getSource() == p2Hand4)
+                board.player2.setCard(board.player2.getHand().getCollection().get(3));
+            if(event.getSource() == p2Hand5)
+                board.player2.setCard(board.player2.getHand().getCollection().get(4));
+            if(event.getSource() == p2Hand6)
+                board.player2.setCard(board.player2.getHand().getCollection().get(5));
+            if(event.getSource() == p2Hand7)
+                board.player2.setCard(board.player2.getHand().getCollection().get(6));
+            if(event.getSource() == p2Hand8)
+                board.player2.setCard(board.player2.getHand().getCollection().get(7));
 
         }
+        
+        updatePlayers();
     }
     
     

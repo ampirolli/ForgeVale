@@ -39,6 +39,8 @@ public class Player {
         this.manaUsed = 0;
         this.cardsPlayed = 0;
         hasDrawnFirstHand = false;
+        this.grave = new GraveYard();
+        this.activeZone = new ActiveZone();
         
     }
 
@@ -155,10 +157,9 @@ public class Player {
     }
     
     public void setCard(Card card){
+            
+        this.activeZone.addCard(card, this.hand);
         
-        if(this.activeZone.getCollection().size() < 8){
-           this.activeZone.addCard(card, this.hand);
-        }
     
     }
     

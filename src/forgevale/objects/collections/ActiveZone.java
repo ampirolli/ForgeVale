@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author anthonypirolli
+ * @author ampirolli
  */
 public class ActiveZone extends CardCollection{
     

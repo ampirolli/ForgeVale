@@ -1,5 +1,7 @@
 package forgevale;
 
+import forgevale.objects.Board;
+import forgevale.objects.Test;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
+    Board board;
+    
     @FXML
     private Label label;
     
@@ -22,9 +26,13 @@ public class FXMLDocumentController implements Initializable {
         label.setText("Hello World!");
     }
     
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Test test = new Test();
+        board = new Board(test.getPlayer1(), test.getPlayer2());
     }    
     
 }

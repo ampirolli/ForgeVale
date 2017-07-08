@@ -17,14 +17,16 @@ import javafx.stage.Stage;
  */
 public class Test {
   
-    public Test(){
+    Player player1 = new Player("Pirolli");
+    Player player2 = new Player("HelkDog");
     
+    public Test(){
+        setTest();
     }
     
-    public void TEST(){
+    public void setTest(){
 
-        Player player1 = new Player("Pirolli");
-        Player player2 = new Player("HelkDog");
+        
 
         Deck deck1 = new Deck(); //creates a place holder deck
         Deck deck2 = new Deck();
@@ -84,6 +86,22 @@ public class Test {
             System.out.println("- Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");
 
         }
+    }
+    
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(Player player1) {
+        this.player1 = player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
     }
 
 }

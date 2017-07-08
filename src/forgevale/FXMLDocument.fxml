@@ -47,6 +47,9 @@
         <Button fx:id="p2Board6" translateX = "720" translateY = "575"> </Button>
         <Button fx:id="p2Board7" translateX = "855" translateY = "575"> </Button>
         <Button fx:id="p2Board8" translateX = "990" translateY = "575"> </Button>
+        
+        <Button fx:id="btnNextPhase" text = "Next Phase" maxHeight = "100" maxWidth = "50" translateX = "1200" translateY = "300"> </Button>
+        
     </children>
 
 

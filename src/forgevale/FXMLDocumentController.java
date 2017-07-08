@@ -3,6 +3,7 @@ package forgevale;
 import forgevale.objects.Board;
 import forgevale.objects.Player;
 import forgevale.objects.Test;
+import forgevale.objects.cards.Snowku;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -107,6 +108,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void setPrompt(ActionEvent event){
     
+        //event.getSource();
+        
+        
+        
         ButtonType set = new ButtonType("set", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancel = new ButtonType("cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         Alert alert = new Alert(AlertType.WARNING,"", set, cancel);
@@ -117,6 +122,57 @@ public class FXMLDocumentController implements Initializable {
         
 
         if (result.isPresent() && result.get() == set) {
+            
+            if( true == false && event.getSource() == p1Hand1){
+                //board.player1.getActiveZone().addCard(board.player1.getHand().getCollection().get(0), board.player1.getHand());       
+            }
+            if(event.getSource() == p1Hand2){
+                board.player1.getHand().getCollection().get(1);
+            }
+            if(event.getSource() == p1Hand3){
+                board.player1.getHand().getCollection().get(2);
+            }
+            if(event.getSource() == p1Hand4){
+                board.player1.getHand().getCollection().get(3);
+            }
+            if(event.getSource() == p1Hand5){
+                board.player1.getHand().getCollection().get(4);
+            }
+            if(event.getSource() == p1Hand6){
+                board.player1.getHand().getCollection().get(5);
+            }
+            if(event.getSource() == p1Hand7){
+                board.player1.getHand().getCollection().get(6);
+            }
+            if(event.getSource() == p1Hand8){
+                board.player1.getHand().getCollection().get(7);
+            }
+
+            if(event.getSource() == p2Hand1){
+                board.player2.getHand().getCollection().get(0);
+            }
+            if(event.getSource() == p2Hand2){
+                board.player2.getHand().getCollection().get(1);
+            }
+            if(event.getSource() == p2Hand3){
+                board.player2.getHand().getCollection().get(2);
+            }
+            if(event.getSource() == p2Hand4){
+                board.player2.getHand().getCollection().get(3);
+            }
+            if(event.getSource() == p2Hand5){
+                board.player2.getHand().getCollection().get(4);
+            }
+            if(event.getSource() == p2Hand6){
+                board.player2.getHand().getCollection().get(5);
+            }
+            if(event.getSource() == p2Hand7){
+                board.player2.getHand().getCollection().get(6);
+            }
+            if(event.getSource() == p2Hand8){
+                board.player2.getHand().getCollection().get(7);
+            }
+
 
         }
     }

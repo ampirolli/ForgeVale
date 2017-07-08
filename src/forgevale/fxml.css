@@ -9,4 +9,6 @@
 .button {
         -fx-min-width: 100px;
         -fx-min-height: 140px;
+        -fx-max-width: 100px;
+        -fx-max-height: 140px;
     }

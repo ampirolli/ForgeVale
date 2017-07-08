@@ -73,6 +73,7 @@ public class Test {
         player1.drawCard();//draws card. if its the first time youre drawing a card, it will draw 5 instead
         player2.drawCard();
 
+        
         for(Card card : player1.getHand().getCollection()){ //for each card in the players hand, display this:
             System.out.println(player1.getPlayerName() + ": " + card.getName());
             System.out.println("    - Mana cost: " + card.getManaCost() + " \n - Attack: " + card.getAttack() + "   - Health: " + card.getHealth() + "\n");

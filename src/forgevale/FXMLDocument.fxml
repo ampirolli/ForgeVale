@@ -52,6 +52,17 @@
         
         <Button fx:id="btnNextPhase" text = "Next Phase" maxHeight = "100" maxWidth = "50" translateX = "1200" translateY = "300" onAction="#handleNextPhase"  > </Button>
         
+        <Label fx:id = "p1Name" translateX = "1200" translateY = "50" > p1name </Label>
+        <Label fx:id = "p1Health" translateX = "1200" translateY = "100" > p1health </Label>
+        <Label fx:id = "p1Mana" translateX = "1200" translateY = "150" > p1mana </Label>
+        <Label fx:id = "p1Score" translateX = "1200" translateY = "200" >  p1score</Label>
+        
+        <Label fx:id = "p2Name" translateX = "1200" translateY = "650" > p2name </Label>
+        <Label fx:id = "p2Health" translateX = "1200" translateY = "600" > p2health </Label>
+        <Label fx:id = "p2Mana" translateX = "1200" translateY = "550" > p2mana </Label>
+        <Label fx:id = "p2Score" translateX = "1200" translateY = "500" > p2score </Label>
+        
+        
     </children>
 
 

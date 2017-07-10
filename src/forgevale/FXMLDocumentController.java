@@ -39,6 +39,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button p2Hand1, p2Hand2, p2Hand3, p2Hand4, p2Hand5, p2Hand6, p2Hand7, p2Hand8, p2Board1, p2Board2, p2Board3, p2Board4, p2Board5, p2Board6, p2Board7, p2Board8;
     
+    @FXML
+    private Label p1Name, p1Health, p1Mana, p1Score;
+    
+    @FXML
+    private Label p2Name, p2Health, p2Mana, p2Score;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -49,7 +54,18 @@ public class FXMLDocumentController implements Initializable {
     private void updatePlayers(){
         int i = 0;
         int cardCount = board.player1.getHand().getCollection().size();
+        
+        p1Hand1.setText("");
+        p1Hand2.setText("");
+        p1Hand3.setText("");
+        p1Hand4.setText("");
+        p1Hand5.setText("");
+        p1Hand6.setText("");
+        p1Hand7.setText("");
+        p1Hand8.setText(""); 
         while(i <= cardCount){
+           
+
             if(i == 1)
                 p1Hand1.setText(board.player1.getHand().getCollection().get(0).getName().toString());
             if(i == 2)
@@ -71,6 +87,14 @@ public class FXMLDocumentController implements Initializable {
             
         i = 0;
         cardCount = board.player2.getHand().getCollection().size();
+        p2Hand1.setText("");
+        p2Hand2.setText("");
+        p2Hand3.setText("");
+        p2Hand4.setText("");
+        p2Hand5.setText("");
+        p2Hand6.setText("");
+        p2Hand7.setText("");
+        p2Hand8.setText(""); 
         while(i <= cardCount){
             if(i == 1)
                 p2Hand1.setText(board.player2.getHand().getCollection().get(0).getName().toString());
@@ -110,11 +134,41 @@ public class FXMLDocumentController implements Initializable {
             if(i == 8)
                 p1Board8.setText(board.player1.getActiveZone().getCollection().get(7).getName().toString());
             i++;
-        }  
+        }
+        
+        i = 0;
+        cardCount = board.player2.getActiveZone().getCollection().size();
+        while(i <= cardCount){
+            if(i == 1)
+                p2Board1.setText(board.player2.getActiveZone().getCollection().get(0).getName().toString());
+            if(i == 2)
+                p2Board2.setText(board.player2.getActiveZone().getCollection().get(1).getName().toString());
+            if(i == 3)
+                p2Board3.setText(board.player2.getActiveZone().getCollection().get(2).getName().toString());
+            if(i == 4)
+                p2Board4.setText(board.player2.getActiveZone().getCollection().get(3).getName().toString());
+            if(i == 5)
+                p2Board5.setText(board.player2.getActiveZone().getCollection().get(4).getName().toString());
+            if(i == 6)
+                p2Board6.setText(board.player2.getActiveZone().getCollection().get(5).getName().toString());
+            if(i == 7)
+                p2Board7.setText(board.player2.getActiveZone().getCollection().get(6).getName().toString());
+            if(i == 8)
+                p2Board8.setText(board.player2.getActiveZone().getCollection().get(7).getName().toString());
+            i++;
+        } 
         
     }
     
     private void updateScoreBoard(){
+        
+        p1Health.setText(board.player1.getPlayerHealth().toString());
+        p1Mana.setText(board.player1.getPlayerMana().toString());
+        p1Score.setText(board.player1.getPlayerScore().toString());
+        
+        p2Health.setText(board.player2.getPlayerHealth().toString());
+        p2Mana.setText(board.player2.getPlayerMana().toString());
+        p2Score.setText(board.player2.getPlayerScore().toString());
     
         
         
@@ -122,7 +176,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleNextPhase(ActionEvent event){
+        board.nextPhase();
         updatePlayers();
+        updateScoreBoard();
                         
     }
     
@@ -192,6 +248,8 @@ public class FXMLDocumentController implements Initializable {
         // TODO
         Test test = new Test();
         board = new Board(test.getPlayer1(), test.getPlayer2());
+        p1Name.setText(board.player1.getPlayerName());
+        p2Name.setText(board.player2.getPlayerName());
     }    
     
 }

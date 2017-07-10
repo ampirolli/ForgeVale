@@ -145,13 +145,15 @@ public class Player {
         if(!hasDrawnFirstHand){
             this.hand = new Hand();
             int i;
-            for(i = 0; i < 5; i++){
+            for(i = 0; i < 4; i++){
                 this.hand.addCard(this.deck);
             }
             hasDrawnFirstHand = true;
 
-        }else{
+        }else if(this.deck.getCollection().size() > 0){
             this.hand.addCard(this.deck);
+        }else{
+            System.out.println("Deck is empty");
         }
     
     }

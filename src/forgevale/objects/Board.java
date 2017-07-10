@@ -18,6 +18,7 @@ public class Board {
         this.player1 = player1;
         this.player2 = player2;
         activePlayer = true;
+        phase = 0;
         
     }
     
@@ -51,7 +52,7 @@ public class Board {
     
     public Player getActivePlayer(){
     
-        if(activePlayer = true){
+        if(activePlayer == true){
             return this.player1;
         }else{
             return this.player2;
@@ -69,7 +70,7 @@ public class Board {
     
     }
 
-    private void nextPhase(){
+    public void nextPhase(){
         phase++;
         
         switch(phase){

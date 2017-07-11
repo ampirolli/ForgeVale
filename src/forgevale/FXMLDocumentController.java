@@ -1,10 +1,13 @@
 package forgevale;
 
 import forgevale.objects.Board;
+import forgevale.objects.Card;
 import forgevale.objects.Player;
 import forgevale.objects.Test;
 import forgevale.objects.cards.Snowku;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 
 /**
@@ -67,21 +71,45 @@ public class FXMLDocumentController implements Initializable {
            
 
             if(i == 1)
-                p1Hand1.setText(board.player1.getHand().getCollection().get(0).getName().toString());
+                p1Hand1.setText(board.player1.getHand().getCollection().get(0).getName().toString() 
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(0).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(0).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(0).getManaCost().toString());
             if(i == 2)
-                p1Hand2.setText(board.player1.getHand().getCollection().get(1).getName().toString());
+                p1Hand2.setText(board.player1.getHand().getCollection().get(1).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(1).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(1).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(1).getManaCost().toString());
             if(i == 3)
-                p1Hand3.setText(board.player1.getHand().getCollection().get(2).getName().toString());
+                p1Hand3.setText(board.player1.getHand().getCollection().get(2).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(2).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(2).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(2).getManaCost().toString());
             if(i == 4)
-                p1Hand4.setText(board.player1.getHand().getCollection().get(3).getName().toString());
+                p1Hand4.setText(board.player1.getHand().getCollection().get(3).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(3).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(3).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(3).getManaCost().toString());
             if(i == 5)
-                p1Hand5.setText(board.player1.getHand().getCollection().get(4).getName().toString());
+                p1Hand5.setText(board.player1.getHand().getCollection().get(4).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(4).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(4).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(4).getManaCost().toString());
             if(i == 6)
-                p1Hand6.setText(board.player1.getHand().getCollection().get(5).getName().toString());
+                p1Hand6.setText(board.player1.getHand().getCollection().get(5).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(5).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(5).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(5).getManaCost().toString());
             if(i == 7)
-                p1Hand7.setText(board.player1.getHand().getCollection().get(6).getName().toString());
+                p1Hand7.setText(board.player1.getHand().getCollection().get(6).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(6).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(6).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(6).getManaCost().toString());
             if(i == 8)
-                p1Hand8.setText(board.player1.getHand().getCollection().get(7).getName().toString());
+                p1Hand8.setText(board.player1.getHand().getCollection().get(7).getName().toString()  
+                        +"\nHealth: " + board.player1.getHand().getCollection().get(7).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getHand().getCollection().get(7).getAttack().toString() 
+                        +"\nMana: " + board.player1.getHand().getCollection().get(7).getManaCost().toString());
             i++;
         }
             
@@ -97,42 +125,82 @@ public class FXMLDocumentController implements Initializable {
         p2Hand8.setText(""); 
         while(i <= cardCount){
             if(i == 1)
-                p2Hand1.setText(board.player2.getHand().getCollection().get(0).getName().toString());
+                p2Hand1.setText(board.player2.getHand().getCollection().get(0).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(0).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(0).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(0).getManaCost().toString());
             if(i == 2)
-                p2Hand2.setText(board.player2.getHand().getCollection().get(1).getName().toString());
+                p2Hand2.setText(board.player2.getHand().getCollection().get(1).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(1).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(1).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(1).getManaCost().toString());
             if(i == 3)
-                p2Hand3.setText(board.player2.getHand().getCollection().get(2).getName().toString());
+                p2Hand3.setText(board.player2.getHand().getCollection().get(2).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(2).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(2).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(2).getManaCost().toString());
             if(i == 4)
-                p2Hand4.setText(board.player2.getHand().getCollection().get(3).getName().toString());
+                p2Hand4.setText(board.player2.getHand().getCollection().get(3).getName().toString()
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(3).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(3).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(3).getManaCost().toString());
             if(i == 5)
-                p2Hand5.setText(board.player2.getHand().getCollection().get(4).getName().toString());
+                p2Hand5.setText(board.player2.getHand().getCollection().get(4).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(4).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(4).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(4).getManaCost().toString());
             if(i == 6)
-                p2Hand6.setText(board.player2.getHand().getCollection().get(5).getName().toString());
+                p2Hand6.setText(board.player2.getHand().getCollection().get(5).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(5).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(5).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(5).getManaCost().toString());
             if(i == 7)
-                p2Hand7.setText(board.player2.getHand().getCollection().get(6).getName().toString());
+                p2Hand7.setText(board.player2.getHand().getCollection().get(6).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(6).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(6).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(6).getManaCost().toString());
             if(i == 8)
-                p2Hand8.setText(board.player2.getHand().getCollection().get(7).getName().toString());
+                p2Hand8.setText(board.player2.getHand().getCollection().get(7).getName().toString() 
+                        +"\nHealth: " + board.player2.getHand().getCollection().get(7).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getHand().getCollection().get(7).getAttack().toString() 
+                        +"\nMana: " + board.player2.getHand().getCollection().get(7).getManaCost().toString());
             i++;
         }
         i = 0;
         cardCount = board.player1.getActiveZone().getCollection().size();
         while(i <= cardCount){
             if(i == 1)
-                p1Board1.setText(board.player1.getActiveZone().getCollection().get(0).getName().toString());
+                p1Board1.setText(board.player1.getActiveZone().getCollection().get(0).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(0).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(0).getAttack().toString());
             if(i == 2)
-                p1Board2.setText(board.player1.getActiveZone().getCollection().get(1).getName().toString());
+                p1Board2.setText(board.player1.getActiveZone().getCollection().get(1).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(1).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(1).getAttack().toString());
             if(i == 3)
-                p1Board3.setText(board.player1.getActiveZone().getCollection().get(2).getName().toString());
+                p1Board3.setText(board.player1.getActiveZone().getCollection().get(2).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(2).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(2).getAttack().toString());
             if(i == 4)
-                p1Board4.setText(board.player1.getActiveZone().getCollection().get(3).getName().toString());
+                p1Board4.setText(board.player1.getActiveZone().getCollection().get(3).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(3).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(3).getAttack().toString());
             if(i == 5)
-                p1Board5.setText(board.player1.getActiveZone().getCollection().get(4).getName().toString());
+                p1Board5.setText(board.player1.getActiveZone().getCollection().get(4).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(4).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(4).getAttack().toString());
             if(i == 6)
-                p1Board6.setText(board.player1.getActiveZone().getCollection().get(5).getName().toString());
+                p1Board6.setText(board.player1.getActiveZone().getCollection().get(5).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(5).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(5).getAttack().toString());
             if(i == 7)
-                p1Board7.setText(board.player1.getActiveZone().getCollection().get(6).getName().toString());
+                p1Board7.setText(board.player1.getActiveZone().getCollection().get(6).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(6).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(6).getAttack().toString());
             if(i == 8)
-                p1Board8.setText(board.player1.getActiveZone().getCollection().get(7).getName().toString());
+                p1Board8.setText(board.player1.getActiveZone().getCollection().get(7).getName().toString()
+                        +"\nHealth: " + board.player1.getActiveZone().getCollection().get(7).getHealth().toString() 
+                        +"\nAttack: " + board.player1.getActiveZone().getCollection().get(7).getAttack().toString());
             i++;
         }
         
@@ -140,21 +208,37 @@ public class FXMLDocumentController implements Initializable {
         cardCount = board.player2.getActiveZone().getCollection().size();
         while(i <= cardCount){
             if(i == 1)
-                p2Board1.setText(board.player2.getActiveZone().getCollection().get(0).getName().toString());
+                p2Board1.setText(board.player2.getActiveZone().getCollection().get(0).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(0).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(0).getAttack().toString());
             if(i == 2)
-                p2Board2.setText(board.player2.getActiveZone().getCollection().get(1).getName().toString());
+                p2Board2.setText(board.player2.getActiveZone().getCollection().get(1).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(1).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(1).getAttack().toString());
             if(i == 3)
-                p2Board3.setText(board.player2.getActiveZone().getCollection().get(2).getName().toString());
+                p2Board3.setText(board.player2.getActiveZone().getCollection().get(2).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(2).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(2).getAttack().toString());
             if(i == 4)
-                p2Board4.setText(board.player2.getActiveZone().getCollection().get(3).getName().toString());
+                p2Board4.setText(board.player2.getActiveZone().getCollection().get(3).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(3).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(3).getAttack().toString());
             if(i == 5)
-                p2Board5.setText(board.player2.getActiveZone().getCollection().get(4).getName().toString());
+                p2Board5.setText(board.player2.getActiveZone().getCollection().get(4).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(4).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(4).getAttack().toString());
             if(i == 6)
-                p2Board6.setText(board.player2.getActiveZone().getCollection().get(5).getName().toString());
+                p2Board6.setText(board.player2.getActiveZone().getCollection().get(5).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(5).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(5).getAttack().toString());
             if(i == 7)
-                p2Board7.setText(board.player2.getActiveZone().getCollection().get(6).getName().toString());
+                p2Board7.setText(board.player2.getActiveZone().getCollection().get(6).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(6).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(6).getAttack().toString());
             if(i == 8)
-                p2Board8.setText(board.player2.getActiveZone().getCollection().get(7).getName().toString());
+                p2Board8.setText(board.player2.getActiveZone().getCollection().get(7).getName().toString()
+                        +"\nHealth: " + board.player2.getActiveZone().getCollection().get(7).getHealth().toString() 
+                        +"\nAttack: " + board.player2.getActiveZone().getCollection().get(7).getAttack().toString());
             i++;
         } 
         
@@ -162,13 +246,13 @@ public class FXMLDocumentController implements Initializable {
     
     private void updateScoreBoard(){
         
-        p1Health.setText(board.player1.getPlayerHealth().toString());
-        p1Mana.setText(board.player1.getPlayerMana().toString());
-        p1Score.setText(board.player1.getPlayerScore().toString());
+        p1Health.setText("Health: " + board.player1.getPlayerHealth().toString());
+        p1Mana.setText("Mana: " + board.player1.getPlayerMana().toString());
+        p1Score.setText("Score: " + board.player1.getPlayerScore().toString());
         
-        p2Health.setText(board.player2.getPlayerHealth().toString());
-        p2Mana.setText(board.player2.getPlayerMana().toString());
-        p2Score.setText(board.player2.getPlayerScore().toString());
+        p2Health.setText("Health: " + board.player2.getPlayerHealth().toString());
+        p2Mana.setText("Mana: " + board.player2.getPlayerMana().toString());
+        p2Score.setText("Score: " + board.player2.getPlayerScore().toString());
     
         
         
@@ -185,10 +269,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void setPrompt(ActionEvent event){
     
-        //event.getSource();
-        
-        
-        
         ButtonType set = new ButtonType("set", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancel = new ButtonType("cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         Alert alert = new Alert(AlertType.WARNING,"", set, cancel);
@@ -238,11 +318,124 @@ public class FXMLDocumentController implements Initializable {
         }
         
         updatePlayers();
+        updateScoreBoard();
     }
     
+    @FXML
+    private void attackPrompt(ActionEvent event){
     
+        //event.getSource();
+        Integer i;
+        Integer cardCount;
+        
+        List<String> choices = new ArrayList<>();
+
+        if (board.getActivePlayer() == board.player1){
+        
+            i = 0;
+            cardCount = board.player2.getActiveZone().getCollection().size();
+            
+            while(i <= cardCount){
+                if(i == 1)
+                    choices.add(board.player2.getActiveZone().getCollection().get(0).getName());
+                if(i == 2)
+                    choices.add(board.player2.getActiveZone().getCollection().get(1).getName());
+                if(i == 3)
+                    choices.add(board.player2.getActiveZone().getCollection().get(2).getName());
+                if(i == 4)
+                    choices.add(board.player2.getActiveZone().getCollection().get(3).getName());
+                if(i == 5)
+                    choices.add(board.player2.getActiveZone().getCollection().get(4).getName());
+                if(i == 6)
+                    choices.add(board.player2.getActiveZone().getCollection().get(5).getName());
+                if(i == 7)
+                    choices.add(board.player2.getActiveZone().getCollection().get(6).getName());
+                if(i == 8)
+                    choices.add(board.player2.getActiveZone().getCollection().get(7).getName());
+                    
+                
+   
+                i++;
+            }
+            
+
+            
+        }else if(board.getActivePlayer() == board.player2){
+            
+            i = 0;
+            cardCount = board.player1.getActiveZone().getCollection().size();
+            
+            while(i <= cardCount){
+                if(i == 1)
+                    choices.add(board.player1.getActiveZone().getCollection().get(0).getName());
+                if(i == 2)
+                    choices.add(board.player1.getActiveZone().getCollection().get(1).getName());
+                if(i == 3)
+                    choices.add(board.player1.getActiveZone().getCollection().get(2).getName());
+                if(i == 4)
+                    choices.add(board.player1.getActiveZone().getCollection().get(3).getName());
+                if(i == 5)
+                    choices.add(board.player1.getActiveZone().getCollection().get(4).getName());
+                if(i == 6)
+                    choices.add(board.player1.getActiveZone().getCollection().get(5).getName());
+                if(i == 7)
+                    choices.add(board.player1.getActiveZone().getCollection().get(6).getName());
+                if(i == 8)
+                    choices.add(board.player1.getActiveZone().getCollection().get(7).getName());
+                    
+   
+                i++;
+
+            }
+            
+            
+            ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
+            dialog.setHeaderText("You are about to attack with this card");
+            dialog.setContentText("Choose wich enemy minion youd like to attack with this card.");
+            
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()){
+                if (choices.size() == 1){
+
+                }
+                if (choices.size() == 2){
+
+                }
+                if (choices.size() == 3){
+
+                }
+                if (choices.size() == 4){
+
+                }
+                if (choices.size() == 5){
+
+                }
+                if (choices.size() == 6){
+
+                }
+                if (choices.size() == 7){
+
+                }
+                if (choices.size() == 8){
+
+                }
+
+                if (choices.size() == 1){
+
+                }
+            }else{
+            
+            }
+            
+            
+        }
+       
+        
+        updatePlayers();
+        updateScoreBoard();
+    }
     
-    
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

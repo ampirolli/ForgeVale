@@ -133,8 +133,10 @@ public class Player {
     }
     
     public void accumulateMana(){
-        if(this.playerMana < maxHealth){
+        if(this.playerMana < maxMana){
             this.playerMana = this.playerMana + 1;
+        }else{
+            System.out.println("Player can only accumulate max 20 mana...");
         }
     }
     
@@ -153,14 +155,18 @@ public class Player {
         }else if(this.deck.getCollection().size() > 0){
             this.hand.addCard(this.deck);
         }else{
-            System.out.println("Deck is empty");
+            System.out.println("Deck is empty...");
         }
     
     }
     
     public void setCard(Card card){
-            
-        this.activeZone.addCard(card, this.hand);
+        if(this.playerMana > card.getManaCost()){
+            this.activeZone.addCard(card, this.hand);
+            this.playerMana = this.playerMana - card.getManaCost();
+        }else{
+            System.out.println("not enough mana to set this card");
+        }
         
     
     }

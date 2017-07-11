@@ -171,6 +171,12 @@ public class Player {
     
     }
     
+    public void removeDefeatedCards(){
+        this.activeZone.refreshCollection(this.grave);
+        
+       
+    }
+    
     public void shuffleDeck(){
         this.deck.shuffleDeck();
     }

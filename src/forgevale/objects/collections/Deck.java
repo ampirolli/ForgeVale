@@ -27,7 +27,7 @@ public class Deck extends CardCollection{
         }
     }
     
-        public void buildCollection(ArrayList<Integer> cardNoList){
+    public void buildCollection(ArrayList<Integer> cardNoList){
         for(Integer card: cardNoList){
             
         }

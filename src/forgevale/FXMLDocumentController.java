@@ -56,6 +56,8 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void updatePlayers(){
+        board.player1.removeDefeatedCards();
+        board.player2.removeDefeatedCards();
         int i = 0;
         int cardCount = board.player1.getHand().getCollection().size();
         
@@ -337,21 +339,21 @@ public class FXMLDocumentController implements Initializable {
             
             while(i <= cardCount){
                 if(i == 1)
-                    choices.add(board.player2.getActiveZone().getCollection().get(0).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(0).getName() + "\nIndex: 0");
                 if(i == 2)
-                    choices.add(board.player2.getActiveZone().getCollection().get(1).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(1).getName() + "\nIndex: 1");
                 if(i == 3)
-                    choices.add(board.player2.getActiveZone().getCollection().get(2).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(2).getName() + "\nIndex: 2");
                 if(i == 4)
-                    choices.add(board.player2.getActiveZone().getCollection().get(3).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(3).getName() + "\nIndex: 3") ;
                 if(i == 5)
-                    choices.add(board.player2.getActiveZone().getCollection().get(4).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(4).getName() + "\nIndex: 4");
                 if(i == 6)
-                    choices.add(board.player2.getActiveZone().getCollection().get(5).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(5).getName() + "\nIndex: 5");
                 if(i == 7)
-                    choices.add(board.player2.getActiveZone().getCollection().get(6).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(6).getName() + "\nIndex: 6");
                 if(i == 8)
-                    choices.add(board.player2.getActiveZone().getCollection().get(7).getName());
+                    choices.add(board.player2.getActiveZone().getCollection().get(7).getName() + "\nIndex: 7") ;
                     
                 
    
@@ -367,67 +369,79 @@ public class FXMLDocumentController implements Initializable {
             
             while(i <= cardCount){
                 if(i == 1)
-                    choices.add(board.player1.getActiveZone().getCollection().get(0).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(0).getName() + "\nIndex: 0");
                 if(i == 2)
-                    choices.add(board.player1.getActiveZone().getCollection().get(1).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(1).getName() + "\nIndex: 1");
                 if(i == 3)
-                    choices.add(board.player1.getActiveZone().getCollection().get(2).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(2).getName() + "\nIndex: 2");
                 if(i == 4)
-                    choices.add(board.player1.getActiveZone().getCollection().get(3).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(3).getName() + "\nIndex: 3") ;
                 if(i == 5)
-                    choices.add(board.player1.getActiveZone().getCollection().get(4).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(4).getName() + "\nIndex: 4");
                 if(i == 6)
-                    choices.add(board.player1.getActiveZone().getCollection().get(5).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(5).getName() + "\nIndex: 5");
                 if(i == 7)
-                    choices.add(board.player1.getActiveZone().getCollection().get(6).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(6).getName() + "\nIndex: 6");
                 if(i == 8)
-                    choices.add(board.player1.getActiveZone().getCollection().get(7).getName());
+                    choices.add(board.player1.getActiveZone().getCollection().get(7).getName() + "\nIndex: 7") ;
                     
    
                 i++;
 
             }
+              
+        }
+        
+        ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
+        
+        dialog.setHeaderText("You are about to attack with this card");
+        dialog.setContentText("Choose wich enemy minion youd like to attack with this card.");
             
+        Optional<String> result = dialog.showAndWait();
+        Integer cardIndex = Integer.parseInt(result.get().substring(result.get().lastIndexOf(" ")+1));
+        
+        if (result.isPresent() && board.getActivePlayer() == board.player1){
             
-            ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
-            dialog.setHeaderText("You are about to attack with this card");
-            dialog.setContentText("Choose wich enemy minion youd like to attack with this card.");
+            if(event.getSource() == p1Board1)
+                board.player1.getActiveZone().getCollection().get(0).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));
+            if(event.getSource() == p1Board2)
+                board.player1.getActiveZone().getCollection().get(1).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));          
+            if(event.getSource() == p1Board3)
+                board.player1.getActiveZone().getCollection().get(2).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p1Board4)
+                board.player1.getActiveZone().getCollection().get(3).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p1Board5)
+                board.player1.getActiveZone().getCollection().get(4).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p1Board6)
+                board.player1.getActiveZone().getCollection().get(5).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p1Board7)
+                board.player1.getActiveZone().getCollection().get(6).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));
+            if(event.getSource() == p1Board8)
+                board.player1.getActiveZone().getCollection().get(7).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));
             
-            Optional<String> result = dialog.showAndWait();
-            if (result.isPresent()){
-                if (choices.size() == 1){
 
-                }
-                if (choices.size() == 2){
-
-                }
-                if (choices.size() == 3){
-
-                }
-                if (choices.size() == 4){
-
-                }
-                if (choices.size() == 5){
-
-                }
-                if (choices.size() == 6){
-
-                }
-                if (choices.size() == 7){
-
-                }
-                if (choices.size() == 8){
-
-                }
-
-                if (choices.size() == 1){
-
-                }
-            }else{
+        }else if(result.isPresent() && board.getActivePlayer() == board.player2){
             
-            }
+            if(event.getSource() == p2Board1)
+                board.player2.getActiveZone().getCollection().get(0).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));
+            if(event.getSource() == p2Board2)
+                board.player2.getActiveZone().getCollection().get(1).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));          
+            if(event.getSource() == p2Board3)
+                board.player2.getActiveZone().getCollection().get(2).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p2Board4)
+                board.player2.getActiveZone().getCollection().get(3).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p2Board5)
+                board.player2.getActiveZone().getCollection().get(4).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p2Board6)
+                board.player2.getActiveZone().getCollection().get(5).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));         
+            if(event.getSource() == p2Board7)
+                board.player2.getActiveZone().getCollection().get(6).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));
+            if(event.getSource() == p2Board8)
+                board.player2.getActiveZone().getCollection().get(7).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));
             
-            
+        
+        }else{
+            //do nothing
         }
        
         

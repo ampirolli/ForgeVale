@@ -20,11 +20,24 @@ public class ActiveZone extends CardCollection{
         
         if(this.getCollection().size() < maxSize){
             this.getCollection().add(card);
-            hand.getCollection().remove(hand.getCollection().indexOf(card));
+            hand.getCollection().remove(card);
         }else{
             System.out.println("Cannot set more than 8 cards...");
         }
     
+    }
+    
+    public void refreshCollection(GraveYard grave){
+        
+        for(Card card : this.getCollection()){
+            if(!card.isActive()){
+                this.getCollection().remove(card);
+                grave.getCollection().add(card);
+                
+            }
+        }
+        
+        
     }
     
 }

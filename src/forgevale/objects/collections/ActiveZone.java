@@ -29,13 +29,19 @@ public class ActiveZone extends CardCollection{
     
     public void refreshCollection(GraveYard grave){
         
+        ArrayList<Card> deadCards = new ArrayList<Card>();
         for(Card card : this.getCollection()){
             if(!card.isActive()){
-                this.getCollection().remove(card);
+                deadCards.add(card);
                 grave.getCollection().add(card);
                 
             }
         }
+        for(Card deadCard : deadCards){
+            
+            this.getCollection().remove(deadCard);
+        }
+        
         
         
     }

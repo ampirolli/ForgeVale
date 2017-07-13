@@ -12,6 +12,9 @@
         <URL value="@fxml.css"/>
     </stylesheets>
     <children>
+        
+        
+        
         <Button fx:id="p1Hand1" translateX = "45"  translateY = "25"  onAction="#setPrompt" > </Button>
         <Button fx:id="p1Hand2" translateX = "180" translateY = "25"  onAction="#setPrompt" > </Button>
         <Button fx:id="p1Hand3" translateX = "315" translateY = "25"  onAction="#setPrompt" > </Button>

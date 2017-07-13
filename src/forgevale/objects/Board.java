@@ -84,7 +84,10 @@ public class Board {
                     
                 case 2:
                     this.attackAndSetPhase(this.getActivePlayer());
+                    this.switchActivePlayer();
+                    prePhase = true;
                     mainPhase = false;
+                    phase = 0;
                     break;
                     
                 default:

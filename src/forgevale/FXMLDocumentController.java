@@ -20,6 +20,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
 
 /**
  *
@@ -43,6 +44,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button p2Hand1, p2Hand2, p2Hand3, p2Hand4, p2Hand5, p2Hand6, p2Hand7, p2Hand8, p2Board1, p2Board2, p2Board3, p2Board4, p2Board5, p2Board6, p2Board7, p2Board8;
     
+    @FXML Button btnNextPhase;
+    
     @FXML
     private Label p1Name, p1Health, p1Mana, p1Score;
     
@@ -56,6 +59,88 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void updatePlayers(){
+        
+    if(board.getActivePlayer() == board.player1){
+        
+        p1Hand1.setStyle("-fx-background-color: #00FF00;");
+        p1Hand2.setStyle("-fx-background-color: #00FF00;");
+        p1Hand3.setStyle("-fx-background-color: #00FF00;");
+        p1Hand4.setStyle("-fx-background-color: #00FF00;");
+        p1Hand5.setStyle("-fx-background-color: #00FF00;");
+        p1Hand6.setStyle("-fx-background-color: #00FF00;");
+        p1Hand7.setStyle("-fx-background-color: #00FF00;");
+        p1Hand8.setStyle("-fx-background-color: #00FF00;");
+       
+        p1Board1.setStyle("-fx-background-color: #00FF00;");
+        p1Board2.setStyle("-fx-background-color: #00FF00;");
+        p1Board3.setStyle("-fx-background-color: #00FF00;");
+        p1Board4.setStyle("-fx-background-color: #00FF00;");
+        p1Board5.setStyle("-fx-background-color: #00FF00;");
+        p1Board6.setStyle("-fx-background-color: #00FF00;");
+        p1Board7.setStyle("-fx-background-color: #00FF00;");
+        p1Board8.setStyle("-fx-background-color: #00FF00;");
+        
+        
+        p2Hand1.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand2.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand3.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand4.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand5.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand6.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand7.setStyle("-fx-background-color: #FF7F7F;");
+        p2Hand8.setStyle("-fx-background-color: #FF7F7F;");
+       
+        p2Board1.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board2.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board3.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board4.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board5.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board6.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board7.setStyle("-fx-background-color: #FF7F7F;");
+        p2Board8.setStyle("-fx-background-color: #FF7F7F;");
+
+        
+    }else if(board.getActivePlayer() == board.player2){
+    
+        p1Hand1.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand2.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand3.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand4.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand5.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand6.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand7.setStyle("-fx-background-color: #FF7F7F;");
+        p1Hand8.setStyle("-fx-background-color: #FF7F7F;");
+       
+        p1Board1.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board2.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board3.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board4.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board5.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board6.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board7.setStyle("-fx-background-color: #FF7F7F;");
+        p1Board8.setStyle("-fx-background-color: #FF7F7F;");
+        
+        
+        p2Hand1.setStyle("-fx-background-color: #00FF00;");
+        p2Hand2.setStyle("-fx-background-color: #00FF00;");
+        p2Hand3.setStyle("-fx-background-color: #00FF00;");
+        p2Hand4.setStyle("-fx-background-color: #00FF00;");
+        p2Hand5.setStyle("-fx-background-color: #00FF00;");
+        p2Hand6.setStyle("-fx-background-color: #00FF00;");
+        p2Hand7.setStyle("-fx-background-color: #00FF00;");
+        p2Hand8.setStyle("-fx-background-color: #00FF00;");
+       
+        p2Board1.setStyle("-fx-background-color: #00FF00;");
+        p2Board2.setStyle("-fx-background-color: #00FF00;");
+        p2Board3.setStyle("-fx-background-color: #00FF00;");
+        p2Board4.setStyle("-fx-background-color: #00FF00;");
+        p2Board5.setStyle("-fx-background-color: #00FF00;");
+        p2Board6.setStyle("-fx-background-color: #00FF00;");
+        p2Board7.setStyle("-fx-background-color: #00FF00;");
+        p2Board8.setStyle("-fx-background-color: #00FF00;");
+        
+    }
+        
         board.player1.removeDefeatedCards();
         board.player2.removeDefeatedCards();
         int i = 0;
@@ -68,7 +153,35 @@ public class FXMLDocumentController implements Initializable {
         p1Hand5.setText("");
         p1Hand6.setText("");
         p1Hand7.setText("");
-        p1Hand8.setText(""); 
+        p1Hand8.setText("");
+        
+        p2Hand1.setText("");
+        p2Hand2.setText("");
+        p2Hand3.setText("");
+        p2Hand4.setText("");
+        p2Hand5.setText("");
+        p2Hand6.setText("");
+        p2Hand7.setText("");
+        p2Hand8.setText("");
+        
+        p1Board1.setText("");
+        p1Board2.setText("");
+        p1Board3.setText("");
+        p1Board4.setText("");
+        p1Board5.setText("");
+        p1Board6.setText("");
+        p1Board7.setText("");
+        p1Board8.setText("");
+       
+        p2Board1.setText("");
+        p2Board2.setText("");
+        p2Board3.setText("");
+        p2Board4.setText("");
+        p2Board5.setText("");
+        p2Board6.setText("");
+        p2Board7.setText("");
+        p2Board8.setText("");
+        
         while(i <= cardCount){
            
 
@@ -171,6 +284,15 @@ public class FXMLDocumentController implements Initializable {
         i = 0;
         cardCount = board.player1.getActiveZone().getCollection().size();
         while(i <= cardCount){
+            if(i == 0){
+                p1Board1.setText("");
+                p1Board2.setText("");
+                p1Board3.setText("");
+                p1Board4.setText("");
+                p1Board5.setText("");
+                p1Board6.setText("");
+                p1Board7.setText("");
+            } 
             if(i == 1)
                 p1Board1.setText(board.player1.getActiveZone().getCollection().get(0).getName().toString()
                         +"\nHealth: " + board.player1.getActiveZone().getCollection().get(0).getHealth().toString() 
@@ -209,6 +331,15 @@ public class FXMLDocumentController implements Initializable {
         i = 0;
         cardCount = board.player2.getActiveZone().getCollection().size();
         while(i <= cardCount){
+            if(i == 0){
+                p2Board1.setText("");
+                p2Board2.setText("");
+                p2Board3.setText("");
+                p2Board4.setText("");
+                p2Board5.setText("");
+                p2Board6.setText("");
+                p2Board7.setText("");
+            }
             if(i == 1)
                 p2Board1.setText(board.player2.getActiveZone().getCollection().get(0).getName().toString()
                         +"\nHealth: " + board.player2.getActiveZone().getCollection().get(0).getHealth().toString() 
@@ -247,6 +378,12 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void updateScoreBoard(){
+        
+        if(board.isPrePhase()){
+        btnNextPhase.setText("Draw");
+        }else if(board.isMainPhase()){
+            btnNextPhase.setText("End Turn");
+        }
         
         p1Health.setText("Health: " + board.player1.getPlayerHealth().toString());
         p1Mana.setText("Mana: " + board.player1.getPlayerMana().toString());
@@ -419,7 +556,8 @@ public class FXMLDocumentController implements Initializable {
             if(event.getSource() == p1Board8)
                 board.player1.getActiveZone().getCollection().get(7).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));
             
-
+            updatePlayers();
+            updateScoreBoard();
         }else if(result.isPresent() && board.getActivePlayer() == board.player2){
             
             if(event.getSource() == p2Board1)
@@ -439,14 +577,14 @@ public class FXMLDocumentController implements Initializable {
             if(event.getSource() == p2Board8)
                 board.player2.getActiveZone().getCollection().get(7).executeAttack(board.player1.getActiveZone().getCollection().get(cardIndex));
             
-        
+            updatePlayers();
+            updateScoreBoard();
         }else{
             //do nothing
         }
        
         
-        updatePlayers();
-        updateScoreBoard();
+        
     }
     
    
@@ -457,6 +595,10 @@ public class FXMLDocumentController implements Initializable {
         board = new Board(test.getPlayer1(), test.getPlayer2());
         p1Name.setText(board.player1.getPlayerName());
         p2Name.setText(board.player2.getPlayerName());
+        
+        updatePlayers();
+        updateScoreBoard();
+        
     }    
     
 }

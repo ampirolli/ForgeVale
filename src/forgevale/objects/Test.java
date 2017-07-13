@@ -53,6 +53,17 @@ public class Test {
         deck1.addCard(snowku,player1);
         deck1.addCard(squidKid,player1);
         
+        bigLizard = new BigLizard();
+        boneATor = new BoneATor(); 
+        brave = new Brave();
+        beehemoth = new Beehemoth();
+        eliminator = new Eliminator();
+        kitPup = new KitPup();
+        largePapa = new LargePapa();
+        skinnyLips = new SkinnyLips();
+        snowku = new Snowku();
+        squidKid = new SquidKid();
+        
         deck2.addCard(bigLizard, player2); //adds each card into the placeholder deck2
         deck2.addCard(boneATor,player2);
         deck2.addCard(brave,player2);

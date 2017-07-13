@@ -33,6 +33,8 @@
         <Button fx:id="p1Board7" translateX = "855" translateY = "200"  onAction = "#attackPrompt" > </Button>
         <Button fx:id="p1Board8" translateX = "990" translateY = "200"  onAction = "#attackPrompt" > </Button>
         
+        <Label fx:id = "phaseLabel" translateX = "490" translateY = "360" > phase </Label>
+        
         <Button fx:id="p2Board1" translateX = "45"  translateY = "400" onAction = "#attackPrompt" > </Button>
         <Button fx:id="p2Board2" translateX = "180" translateY = "400" onAction = "#attackPrompt" > </Button>
         <Button fx:id="p2Board3" translateX = "315" translateY = "400" onAction = "#attackPrompt" > </Button>

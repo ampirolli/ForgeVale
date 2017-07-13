@@ -53,6 +53,9 @@ public class FXMLDocumentController implements Initializable {
     private Label p2Name, p2Health, p2Mana, p2Score;
     
     @FXML
+    private Label phaseLabel;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -61,6 +64,8 @@ public class FXMLDocumentController implements Initializable {
     private void updatePlayers(){
         
     if(board.getActivePlayer() == board.player1){
+        
+        
         
         p1Hand1.setStyle("-fx-background-color: #00FF00;");
         p1Hand2.setStyle("-fx-background-color: #00FF00;");
@@ -380,9 +385,19 @@ public class FXMLDocumentController implements Initializable {
     private void updateScoreBoard(){
         
         if(board.isPrePhase()){
-        btnNextPhase.setText("Draw");
+            btnNextPhase.setText("Draw");
+            if(board.getActivePlayer() == board.player1) 
+                phaseLabel.setText(board.player1.getPlayerName() + ": Mana and Draw Phase");
+            else if(board.getActivePlayer() == board.player2)
+                phaseLabel.setText(board.player2.getPlayerName() + ": Mana and Draw Phase");
         }else if(board.isMainPhase()){
             btnNextPhase.setText("End Turn");
+            
+            if(board.getActivePlayer() == board.player1) 
+                phaseLabel.setText(board.player1.getPlayerName() + ": Attack Phase");
+            else if(board.getActivePlayer() == board.player2)
+                phaseLabel.setText(board.player2.getPlayerName() + ": Attack Phase");
+            
         }
         
         p1Health.setText("Health: " + board.player1.getPlayerHealth().toString());
@@ -475,6 +490,10 @@ public class FXMLDocumentController implements Initializable {
             cardCount = board.player2.getActiveZone().getCollection().size();
             
             while(i <= cardCount){
+                if(cardCount == 0){
+                    choices.add(board.player2.getPlayerName());
+                    break;
+                }
                 if(i == 1)
                     choices.add(board.player2.getActiveZone().getCollection().get(0).getName() + "\nIndex: 0");
                 if(i == 2)
@@ -505,6 +524,10 @@ public class FXMLDocumentController implements Initializable {
             cardCount = board.player1.getActiveZone().getCollection().size();
             
             while(i <= cardCount){
+                if(cardCount == 0){
+                    choices.add(board.player1.getPlayerName());
+                    break;
+                }
                 if(i == 1)
                     choices.add(board.player1.getActiveZone().getCollection().get(0).getName() + "\nIndex: 0");
                 if(i == 2)
@@ -532,7 +555,7 @@ public class FXMLDocumentController implements Initializable {
         ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
         
         dialog.setHeaderText("You are about to attack with this card");
-        dialog.setContentText("Choose wich enemy minion youd like to attack with this card.");
+        dialog.setContentText("Choose the enemy youd like to attack with this card.");
             
         Optional<String> result = dialog.showAndWait();
         Integer cardIndex = Integer.parseInt(result.get().substring(result.get().lastIndexOf(" ")+1));

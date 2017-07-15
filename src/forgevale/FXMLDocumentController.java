@@ -558,12 +558,12 @@ public class FXMLDocumentController implements Initializable {
         dialog.setContentText("Choose the enemy youd like to attack with this card.");
             
         Optional<String> result = dialog.showAndWait();
-        Integer cardIndex = Integer.parseInt(result.get().substring(result.get().lastIndexOf(" ")+1));
+        String cardIndex = result.get().substring(result.get().lastIndexOf(" ")+1);
         
         if (result.isPresent() && board.getActivePlayer() == board.player1){
             
             if(event.getSource() == p1Board1)
-                board.player1.getActiveZone().getCollection().get(0).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));
+                board.player1.getActiveZone().getCollection().get(0).executeAttack(board.player2.getActiveZone().getCollection().get(Integer.getInteger(cardIndex)));
             if(event.getSource() == p1Board2)
                 board.player1.getActiveZone().getCollection().get(1).executeAttack(board.player2.getActiveZone().getCollection().get(cardIndex));          
             if(event.getSource() == p1Board3)

@@ -111,6 +111,17 @@ public class Card {
         }
 
     }
+    
+    public void executeAttackPlayer(Player opponent){
+        if(this.isActive() == true){
+            opponent.setPlayerHealth(opponent.getPlayerHealth() - this.attack);
+        }
+        else{
+            System.out.println(this.getName() + " cannot attack because this card is inactive");
+        }
+
+    }
+    
     public void attacked(Card opponent) {
         opponent.takesDamage(this);
         this.takesDamage(opponent);
